@@ -15,6 +15,7 @@ import UserContext from './contexts/UserContext';
 import SignIn from './pages/SignIn/index';
 import SignUp from './pages/SignUp/index';
 import Products from './pages/Products/index';
+import ProductsByCategories from './pages/ProductsByCategory';
 import Cart from './pages/Cart/index';
 
 
@@ -39,6 +40,7 @@ function Routes() {
       <Route exact path='/' component={SignIn}/>
       <Route exact path='/sign-up' component={SignUp}/>
       <Route exact path='/products' component={Products}/>
+      <Route exact path='/categories/:id' component={ProductsByCategories} />
       <Route exact path='/cart' component={Cart}/>
     </Switch>
   );

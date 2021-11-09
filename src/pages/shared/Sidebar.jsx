@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 
 const Sidebar = () => {
   const [listCategories, setListCategories] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const promisse = axios.get('http://localhost:4000/categories');
@@ -19,7 +21,7 @@ const Sidebar = () => {
       {
         listCategories.map((category, key) => {
           return (
-            <p key={key}>{category.type}</p>
+            <p key={key} onClick={() => history.push(`/categories/${category.id}`)}>{category.type}</p>
           );
         })
       }

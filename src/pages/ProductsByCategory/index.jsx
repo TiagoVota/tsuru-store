@@ -1,16 +1,19 @@
+import styled from 'styled-components';
+
 import Header from '../shared/Header';
 import Sidebar from '../shared/Sidebar';
 import Content from '../shared/content';
-import styled from 'styled-components';
+import { useParams } from 'react-router';
 
-const Products = () => {
+const ProductsByCategories = () => {
+  const { id } = useParams();
 
   return (
     <>
       <Header />
       <PageContainer>
         <Sidebar />
-        <Content></Content>
+        <Content id={id}></Content>
       </PageContainer>
     </>
   );
@@ -22,4 +25,4 @@ const PageContainer = styled.main`
   height: calc(100vh - 70px);
 `;
 
-export default Products;
+export default ProductsByCategories;

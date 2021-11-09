@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+
 import shoppingCart from '../../assets/shoppingCart.svg';
 
 const Header = () => {
+  const history = useHistory();
+
   return (
     <Container>
-      <p>TSURU-STORE</p>
-      <img src={shoppingCart} />
+      <p onClick={() => history.push('/products')}>TSURU-STORE</p>
+      <img onClick={() => history.push('/cart')} src={shoppingCart} />
     </Container>
   );
 };

@@ -1,9 +1,9 @@
-
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Content = () => {
+const Content = (props) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,27 @@ const Content = () => {
     setProducts(res.data);
   };
 
-  return (
-    <Page>
-      {products.map((product, key) => {
+
+  if (!props.id) {
+    return (
+      <Page>
+        {products.map((product, key) => {
+          return (<Product key={key}>
+            <img src={product.image} alt='imagem' />
+            <TextProduct>
+              <p>{product.name}</p>
+              <p>R${product.price.replace('.', ',')}</p>
+            </TextProduct>
+          </Product>);
+        })}
+      </Page>
+    );
+  }
+
+  return (<Page>
+    {products.map((product, key) => {
+      console.log(props.id, product.id);
+      if (Number(props.id) === product.category_id) {
         return (<Product key={key}>
           <img src={product.image} alt='imagem' />
           <TextProduct>
@@ -25,9 +43,9 @@ const Content = () => {
             <p>R${product.price.replace('.', ',')}</p>
           </TextProduct>
         </Product>);
-      })}
-    </Page>
-  );
+      }
+    })}
+  </Page>);
 };
 
 const Page = styled.main`
