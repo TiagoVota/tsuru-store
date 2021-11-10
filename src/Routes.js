@@ -33,7 +33,6 @@ function Routes() {
   // TODO: Ativar este useEffect e ver se não precisa melhorar nada dele
   // useEffect(redirectUserPage, [location, token]);
 
-  console.log(location);
   return (
     <Switch>
       <Route exact path='/' component={SignIn}/>
