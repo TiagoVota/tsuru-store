@@ -1,10 +1,10 @@
 import Header from '../Shared/Header';
 import Sidebar from '../Shared/Sidebar';
-import Content from '../Shared/content';
+
 import styled from 'styled-components';
+import Content from './content';
 
-const Products = () => {
-
+const SingleProduct = () => {
   return (
     <>
       <Header />
@@ -21,5 +21,4 @@ const PageContainer = styled.main`
   margin-top: 70px;
   height: calc(100vh - 70px);
 `;
-
-export default Products;
+export default SingleProduct;

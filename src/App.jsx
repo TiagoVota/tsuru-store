@@ -23,7 +23,6 @@ const App = () => {
     <UserContext.Provider value={{userInfo, setUserInfo}}>
       <Router>
         <GlobalStyle />
-
         <Routes />
       </Router>
     </UserContext.Provider>
