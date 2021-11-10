@@ -2,13 +2,17 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+import treatError from '../../services/service.error';
 
 const Content = (props) => {
   const [products, setProducts] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
-    const promisse = axios.get('http://localhost:4000/products');
-    promisse.then((res) => handleSucces(res));
+    const promisse = axios.get('http://localhost:4240/products');
+    promisse.then((res) => handleSucces(res)).catch(treatError);
   }, []);
 
   const handleSucces = (res) => {
@@ -20,7 +24,7 @@ const Content = (props) => {
     return (
       <Page>
         {products.map((product, key) => {
-          return (<Product key={key}>
+          return (<Product key={key} onClick={() => history.push(`/product/${product.id}`)}>
             <img src={product.image} alt='imagem' />
             <TextProduct>
               <p>{product.name}</p>
@@ -34,9 +38,8 @@ const Content = (props) => {
 
   return (<Page>
     {products.map((product, key) => {
-      console.log(props.id, product.id);
       if (Number(props.id) === product.category_id) {
-        return (<Product key={key}>
+        return (<Product key={key} onClick={() => history.push(`/product/${product.id}`)}>
           <img src={product.image} alt='imagem' />
           <TextProduct>
             <p>{product.name}</p>
@@ -49,32 +52,41 @@ const Content = (props) => {
 };
 
 const Page = styled.main`
-margin: auto;
+  margin: auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
 `;
 
 const Product = styled.div`
-    width: 20vw;
-    height: 30vh;
-    box-shadow: 3px 3px 3px #888888;
-    border-radius: 15px;
-    margin: 15px 15px;
-    cursor: pointer;
-    background-color: white;
+  width: 20vw;
+  height: 30vh;
+  box-shadow: 3px 3px 3px #888888;
+  border-radius: 15px;
+  margin: 15px 15px;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    img{
-      margin: 0 auto;
-      height: 85%;
-      border-radius: 15px 15px 0 0;
-      margin-bottom: 15px;
-    }
+  img{
+    height: 85%;
+    margin-bottom: 15px;
+  }
 `;
 
 const TextProduct = styled.div`
-    padding: 0 10px;
-    display: flex;
-    justify-content: space-between;
+  padding: 0 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  p{
+    margin: 5px;
+  }
 `;
 
 export default Content;

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import Header from '../shared/Header';
-import Sidebar from '../shared/Sidebar';
-import Content from '../shared/content';
+import Header from '../Shared/Header';
+import Sidebar from '../Shared/Sidebar';
+import Content from '../Shared/content';
 import { useParams } from 'react-router';
 
 const ProductsByCategories = () => {
@@ -13,7 +13,7 @@ const ProductsByCategories = () => {
       <Header />
       <PageContainer>
         <Sidebar />
-        <Content id={id}></Content>
+        <Content id={id} />
       </PageContainer>
     </>
   );

@@ -3,13 +3,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
+import treatError from '../../services/service.error';
+
 const Sidebar = () => {
   const [listCategories, setListCategories] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
-    const promisse = axios.get('http://localhost:4000/categories');
-    promisse.then((res) => handleSucces(res));
+    const promisse = axios.get('http://localhost:4240/categories');
+    promisse.then((res) => handleSucces(res)).catch(treatError);
   }, []);
 
   const handleSucces = (res) => {
@@ -36,14 +38,17 @@ const Container = styled.div`
   background-color: white;
   border: 1px solid purple;
   border-radius: 0 30px 0 0;
-  padding: 30px 10px;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
   position: fixed;
   left: 0;
   top: 70;
   &:hover,
   &:focus {
-    width: 15vw;
+    width: 15vw;  
     word-wrap: break-word;
     white-space: normal;
   }

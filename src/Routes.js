@@ -17,6 +17,7 @@ import SignUp from './pages/SignUp/index';
 import Products from './pages/Products/index';
 import ProductsByCategories from './pages/ProductsByCategory';
 import Cart from './pages/Cart/index';
+import SingleProduct from './pages/Single_product';
 
 
 function Routes() {
@@ -34,13 +35,13 @@ function Routes() {
   // TODO: Ativar este useEffect e ver se não precisa melhorar nada dele
   // useEffect(redirectUserPage, [location, token]);
 
-  console.log(location);
   return (
     <Switch>
       <Route exact path='/' component={SignIn}/>
       <Route exact path='/sign-up' component={SignUp}/>
       <Route exact path='/products' component={Products}/>
       <Route exact path='/categories/:id' component={ProductsByCategories} />
+      <Route exact path='/product/:id' component={SingleProduct} />
       <Route exact path='/cart' component={Cart}/>
     </Switch>
   );
