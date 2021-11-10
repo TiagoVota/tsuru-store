@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import Header from '../Shared/Header';
 import Sidebar from '../Shared/Sidebar';
-import Content from '../Shared/content';
-import { useParams } from 'react-router';
+import Content from '../Shared/Content';
+import { useParams } from 'react-router-dom';
 
 const ProductsByCategories = () => {
   const { id } = useParams();

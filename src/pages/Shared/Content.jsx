@@ -1,21 +1,22 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 import treatError from '../../services/service.error';
+import { getProducts } from '../../services/service.products';
 
 const Content = (props) => {
   const [products, setProducts] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
-    const promisse = axios.get('http://localhost:4240/products');
-    promisse.then((res) => handleSucces(res)).catch(treatError);
+    getProducts()
+      .then((res) => handleSuccess(res))
+      .catch(() => treatError(history));
   }, []);
 
-  const handleSucces = (res) => {
+  const handleSuccess = (res) => {
     setProducts(res.data);
   };
 
@@ -28,7 +29,7 @@ const Content = (props) => {
             <img src={product.image} alt='imagem' />
             <TextProduct>
               <p>{product.name}</p>
-              <p>R${product.price.replace('.', ',')}</p>
+              <p>R$ {product.price.replace('.', ',')}</p>
             </TextProduct>
           </Product>);
         })}
@@ -43,7 +44,7 @@ const Content = (props) => {
           <img src={product.image} alt='imagem' />
           <TextProduct>
             <p>{product.name}</p>
-            <p>R${product.price.replace('.', ',')}</p>
+            <p>R$ {product.price.replace('.', ',')}</p>
           </TextProduct>
         </Product>);
       }
