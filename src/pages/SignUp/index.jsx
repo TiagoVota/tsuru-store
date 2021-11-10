@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { postSignUp } from '../../services/service.auth';
 
 
-const SignIn = () => {
+const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [cpf, setCpf] = useState('');
@@ -140,7 +140,7 @@ const SignIn = () => {
 };
 
 
-export default SignIn;
+export default SignUp;
 
 
 const Container = styled.div`
