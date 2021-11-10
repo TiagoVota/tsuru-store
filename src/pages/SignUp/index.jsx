@@ -32,7 +32,7 @@ const SignUp = () => {
     postSignUp(body)
       .then(() => {
         successModal('Cadastro realizado!');
-        history.push('/sign-in');
+        history.push('/');
         clearInputs();
       })
       .catch(({ request: { status }}) => handleFailRegister(status));
@@ -57,9 +57,9 @@ const SignUp = () => {
 
   const clearInputs = () => {
     setName('');
-    setPassword('');
     setEmail('');
     setCpf('');
+    setPassword('');
     setRepeatPassword('');
   };
 

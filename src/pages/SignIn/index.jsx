@@ -47,13 +47,13 @@ const SignIn = () => {
   };
 
   const clearInputs = () => {
-    setPassword('');
     setEmail('');
+    setPassword('');
   };
 
   const handleFailRegister = (status) => {
     if (status === 400) return errorModal('Campo(s) inválido(s)!');
-    if (status === 409) return errorModal('E-mail ou senha incorretos!');
+    if (status === 401) return errorModal('E-mail ou senha incorretos!');
     if (status === 500) return errorModal('Erro nosso, tente novamente mais tarde por favor 🥺');
   };
   

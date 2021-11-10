@@ -9,7 +9,7 @@ const postSignUp = (body) => {
 };
 
 const postSignIn = (body) => {
-  return axios.post(`${BASE_URL}/sign-up`, body);
+  return axios.post(`${BASE_URL}/`, body);
 };
 
 
