@@ -24,11 +24,6 @@ const App = () => {
       <Router>
         <GlobalStyle />
 
-        {/* TODO: Tirar esse comentário!!!
-          Coloquei essa parte de routes porque ela era necessária para
-          tornar as rotas privadas. Pois precisava do hook useLocation()
-          e ele só podia ser chamado dentro do Router (pelo que entendi)
-        */}
         <Routes />
       </Router>
     </UserContext.Provider>
