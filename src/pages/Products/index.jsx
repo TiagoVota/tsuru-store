@@ -1,6 +1,6 @@
 import Header from '../Shared/Header';
 import Sidebar from '../Shared/Sidebar';
-import Content from '../Shared/content';
+import Content from '../Shared/Content';
 import styled from 'styled-components';
 
 const Products = () => {
