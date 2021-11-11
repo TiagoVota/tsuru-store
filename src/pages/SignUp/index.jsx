@@ -147,6 +147,7 @@ const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: #8C11BE;
+  background-image: linear-gradient(315deg, #5c077e 0%, #8C11BE 50%, #af3fdb 100%);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -155,17 +156,16 @@ const Container = styled.div`
 
 const H1 = styled.h1`
 	margin-bottom: 10px;
-	font-family: Saira Stencil One;
+  font-family: 'Merienda', cursive;
+  font-weight: 700;
+	font-size: 40px;
 	font-style: normal;
-	font-weight: normal;
-	font-size: 32px;
 	line-height: 50px;
 	color: #FFFFFF;
 `;
 
 const Label = styled.label`
   margin-left: 25%;
-  font-family: Saira Stencil One;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 16px;
@@ -209,8 +209,6 @@ const Button = styled.button`
   margin: 15px 0 20px 25%;
 	background: #A328D6;
 	border-radius: 5px;
-
-	font-family: Raleway;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 20px;
@@ -224,7 +222,6 @@ const Button = styled.button`
 `;
 
 const P = styled.p`
-	font-family: Raleway;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;

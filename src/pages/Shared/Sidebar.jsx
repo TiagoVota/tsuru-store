@@ -77,6 +77,13 @@ const Container = styled.div`
     width: 100vw;
     border-radius: 0;
     border-top: none;
+
+    &:hover,
+    &:focus {
+      width: 100vw;  
+      word-wrap: break-word;
+      white-space: normal;
+    }
   }
 `;
 

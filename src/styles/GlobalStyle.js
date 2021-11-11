@@ -1,16 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap%27');
-
   body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #FFDEE9;
     background-image: linear-gradient(315deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
   }
-
-  @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
 
   /* http://meyerweb.com/eric/tools/css/reset/
   v2.0 | 20110126
