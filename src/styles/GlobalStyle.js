@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     background-image: linear-gradient(315deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
   /* http://meyerweb.com/eric/tools/css/reset/
   v2.0 | 20110126
   License: none (public domain)
