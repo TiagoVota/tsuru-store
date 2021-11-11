@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { postSignUp } from '../../services/service.auth';
 
 
-const SignIn = () => {
+const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [cpf, setCpf] = useState('');
@@ -32,7 +32,7 @@ const SignIn = () => {
     postSignUp(body)
       .then(() => {
         successModal('Cadastro realizado!');
-        history.push('/sign-in');
+        history.push('/');
         clearInputs();
       })
       .catch(({ request: { status }}) => handleFailRegister(status));
@@ -57,9 +57,9 @@ const SignIn = () => {
 
   const clearInputs = () => {
     setName('');
-    setPassword('');
     setEmail('');
     setCpf('');
+    setPassword('');
     setRepeatPassword('');
   };
 
@@ -140,7 +140,7 @@ const SignIn = () => {
 };
 
 
-export default SignIn;
+export default SignUp;
 
 
 const Container = styled.div`

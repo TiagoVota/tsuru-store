@@ -15,9 +15,9 @@ import UserContext from './contexts/UserContext';
 import SignIn from './pages/SignIn/index';
 import SignUp from './pages/SignUp/index';
 import Products from './pages/Products/index';
-import ProductsByCategories from './pages/ProductsByCategory';
+import ProductsByCategories from './pages/ProductsByCategory/index';
 import Cart from './pages/Cart/index';
-import SingleProduct from './pages/Single_product';
+import SingleProduct from './pages/SingleProduct/index';
 
 
 function Routes() {

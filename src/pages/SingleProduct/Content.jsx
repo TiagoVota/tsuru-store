@@ -1,25 +1,26 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import treatError from '../../services/service.error';
+import { getProduct } from '../../services/service.products';
 
 const Content = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({
     price: '',
     name: '',
-    image: ''
+    image: '',
   });
 
-  const handleSucces = (res) => {
+  const handleSuccess = (res) => {
     setProduct(res.data);
   };
 
   useEffect(() => {
-    const promisse = axios.get(`http://localhost:4240/single-product/${id}`);
-    promisse.then((res) => handleSucces(res)).catch(treatError);
+    getProduct(id)
+      .then((res) => handleSuccess(res))
+      .catch(() => treatError(history));
   }, []);
 
   return (
@@ -29,9 +30,9 @@ const Content = () => {
         <Sidebar>
           <TextContainer>
             <p>{product.name}</p>
-            <p>R${product.price.replace('.', ',')}</p>
+            <p>R$ {product.price.replace('.', ',')}</p>
           </TextContainer>
-          <AddToCartButton>Adcionar ao carrinho</AddToCartButton>
+          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
         </Sidebar>
       </ProductContainer>
     </Page>);

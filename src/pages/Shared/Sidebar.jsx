@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import treatError from '../../services/service.error';
+import { getCategories } from '../../services/service.products';
 
 import Arrow from '../../assets/Arrow.svg';
 
@@ -13,11 +13,12 @@ const Sidebar = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const promisse = axios.get('http://localhost:4240/categories');
-    promisse.then((res) => handleSucces(res)).catch(treatError);
+    getCategories()
+      .then((res) => handleSuccess(res))
+      .catch(() => treatError(history));
   }, []);
 
-  const handleSucces = (res) => {
+  const handleSuccess = (res) => {
     setListCategories(res.data);
   };
 

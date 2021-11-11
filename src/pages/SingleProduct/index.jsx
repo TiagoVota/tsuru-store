@@ -2,7 +2,7 @@ import Header from '../Shared/Header';
 import Sidebar from '../Shared/Sidebar';
 
 import styled from 'styled-components';
-import Content from './content';
+import Content from './Content';
 
 const SingleProduct = () => {
   return (
