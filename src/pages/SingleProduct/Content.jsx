@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import treatError from '../../services/service.error';
+import { getToken } from '../../services/service.getToken';
 import { getProduct } from '../../services/service.products';
 
 const Content = () => {
@@ -12,13 +13,15 @@ const Content = () => {
     name: '',
     image: '',
   });
+  const config = getToken();
+  const history = useHistory();
 
   const handleSuccess = (res) => {
     setProduct(res.data);
   };
 
   useEffect(() => {
-    getProduct(id)
+    getProduct(id, config)
       .then((res) => handleSuccess(res))
       .catch(() => treatError(history));
   }, []);

@@ -6,14 +6,16 @@ import treatError from '../../services/service.error';
 import { getCategories } from '../../services/service.products';
 
 import Arrow from '../../assets/Arrow.svg';
+import { getToken } from '../../services/service.getToken';
 
 const Sidebar = () => {
   const [listCategories, setListCategories] = useState([]);
   const [flipped, setFlipped] = useState(false);
   const history = useHistory();
+  const config = getToken();
 
   useEffect(() => {
-    getCategories()
+    getCategories(config)
       .then((res) => handleSuccess(res))
       .catch(() => treatError(history));
   }, []);

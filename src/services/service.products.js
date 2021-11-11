@@ -3,16 +3,16 @@ import axios from 'axios';
 import BASE_URL from './baseUrl';
 
 
-const getCategories = () => {
-  return axios.get(`${BASE_URL}/categories`);
+const getCategories = (config) => {
+  return axios.get(`${BASE_URL}/categories`, config);
 };
 
-const getProducts = () => {
-  return axios.get(`${BASE_URL}/products`);
+const getProducts = (config) => {
+  return axios.get(`${BASE_URL}/products`, config);
 };
 
-const getProduct = (productId) => {
-  return axios.get(`${BASE_URL}/single-product/${productId}`);
+const getProduct = (productId, config) => {
+  return axios.get(`${BASE_URL}/single-product/${productId}`, config);
 };
 
 
