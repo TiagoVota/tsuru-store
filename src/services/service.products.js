@@ -5,7 +5,7 @@ const BASE_URL = 'http://localhost:4042';
 
 
 const getCategories = () => {
-  return axios.post(`${BASE_URL}/categories`);
+  return axios.get(`${BASE_URL}/categories`);
 };
 
 const getProducts = () => {

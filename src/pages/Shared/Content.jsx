@@ -56,6 +56,11 @@ const Page = styled.main`
   margin: auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
+
+  @media (max-width: 600px) {
+		display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Product = styled.div`
@@ -74,6 +79,18 @@ const Product = styled.div`
   img{
     height: 85%;
     margin-bottom: 15px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100vw;
+    height: 30vh;
+    margin: 0;
+    margin-bottom: 15px;
+    border-radius: 0;
+
+    img{
+      height: 100%;
+    }
   }
 `;
 

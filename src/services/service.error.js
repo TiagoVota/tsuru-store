@@ -7,7 +7,7 @@ const treatError = (history) => {
     title: 'Oops',
     text: 'Parece que algo deu errado 😔'
   });
-  history.push('/products');
+  history.push('/');
 };
 
 export default treatError;

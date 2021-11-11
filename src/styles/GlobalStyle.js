@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap%27');
-
   body{
     background-repeat: no-repeat;
     background-attachment: fixed;
