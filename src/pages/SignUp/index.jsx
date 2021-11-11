@@ -171,6 +171,10 @@ const Label = styled.label`
 	font-size: 16px;
 	line-height: 24px;
 	color: #FFFFFF;
+
+  @media (max-width: 600px){
+    margin-left: 5%;
+  }
 `;
 
 const Input = styled.input`
@@ -192,6 +196,11 @@ const Input = styled.input`
 		color: #000000;
 		outline: none;
 	}
+
+  @media (max-width: 600px){
+    width: 90%;
+    margin-left: 5%;
+  }
 `;
 
 const Button = styled.button`
@@ -207,6 +216,11 @@ const Button = styled.button`
 	font-size: 20px;
 	line-height: 23px;
 	color: #FFFFFF;
+
+  @media (max-width: 600px){
+    width: 90%;
+    margin-left: 5%;
+  }
 `;
 
 const P = styled.p`
