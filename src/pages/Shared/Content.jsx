@@ -5,13 +5,15 @@ import { useHistory } from 'react-router-dom';
 
 import treatError from '../../services/service.error';
 import { getProducts } from '../../services/service.products';
+import { getToken } from '../../services/service.getToken';
 
 const Content = (props) => {
   const [products, setProducts] = useState([]);
   const history = useHistory();
+  const config = getToken();
 
   useEffect(() => {
-    getProducts()
+    getProducts(config)
       .then((res) => handleSuccess(res))
       .catch(() => treatError(history));
   }, []);
