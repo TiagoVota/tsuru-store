@@ -1,13 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  body{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #FFDEE9;
-    background-image: linear-gradient(315deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
-  }
-
   /* http://meyerweb.com/eric/tools/css/reset/
   v2.0 | 20110126
   License: none (public domain)
@@ -70,6 +63,11 @@ const GlobalStyle = createGlobalStyle`
   a, :link{
     text-decoration: none;
     color: inherit;
+  }
+
+  html{
+    background-image: linear-gradient(315deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
+    background-attachment: fixed;
   }
 `;
 
