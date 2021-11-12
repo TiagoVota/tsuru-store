@@ -30,8 +30,8 @@ const Content = (props) => {
           return (<Product key={key} onClick={() => history.push(`/product/${product.id}`)}>
             <img src={product.image} alt='imagem' />
             <TextProduct>
-              <p>{product.name}</p>
-              <p>R$ {product.price.replace('.', ',')}</p>
+              <Name>{product.name}</Name>
+              <Price>R$ {product.price.replace('.', ',')}</Price>
             </TextProduct>
           </Product>);
         })}
@@ -45,8 +45,8 @@ const Content = (props) => {
         return (<Product key={key} onClick={() => history.push(`/product/${product.id}`)}>
           <img src={product.image} alt='imagem' />
           <TextProduct>
-            <p>{product.name}</p>
-            <p>R$ {product.price.replace('.', ',')}</p>
+            <Name>{product.name}</Name>
+            <Price>R$ {product.price.replace('.', ',')}</Price>
           </TextProduct>
         </Product>);
       }
@@ -55,7 +55,7 @@ const Content = (props) => {
 };
 
 const Page = styled.main`
-  margin: auto;
+  margin: 12vh auto 0 auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
 
@@ -71,6 +71,7 @@ const Product = styled.div`
   box-shadow: 3px 3px 3px #888888;
   border-radius: 15px;
   margin: 15px 15px;
+  padding: 10px;
   cursor: pointer;
   background-color: white;
   display: flex;
@@ -79,8 +80,10 @@ const Product = styled.div`
   justify-content: center;
 
   img{
-    height: 85%;
+    max-height: 80%;
+    max-width: 90%;
     margin-bottom: 15px;
+    border-radius: 10px;
   }
 
   @media (max-width: 600px) {
@@ -103,10 +106,14 @@ const TextProduct = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
+`;
 
-  p{
-    margin: 5px;
-  }
+const Name = styled.p`
+  width: 60%;
+`;
+
+const Price = styled.p`
+  width: 30%;
 `;
 
 export default Content;

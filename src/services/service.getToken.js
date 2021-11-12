@@ -3,7 +3,7 @@ const getToken = () => {
 
   return {
     headers: {
-      Authorization: `Bearer ${token}`,
+      authorization: `Bearer ${token}`,
     },
   };
 };

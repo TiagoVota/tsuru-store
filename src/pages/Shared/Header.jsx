@@ -17,7 +17,7 @@ const Header = () => {
 const Container = styled.header`
   width: 100vw;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   top: 0%;
   left: 0;
