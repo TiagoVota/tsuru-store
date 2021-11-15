@@ -42,10 +42,6 @@ const Cart = () => {
 
   return (
     <>
-      <Header></Header>
-      <CheckoutButton onClick={closeCart}>
-        test
-      </CheckoutButton>
     </>
   );
 };

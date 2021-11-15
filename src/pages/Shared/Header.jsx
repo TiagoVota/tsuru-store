@@ -8,8 +8,11 @@ const Header = () => {
 
   return (
     <Container>
-      <p onClick={() => history.push('/products')}>TSURU-STORE</p>
-      <img onClick={() => history.push('/cart')} src={shoppingCart} />
+      <h1 onClick={() => history.push('/products')}>TSURU-STORE</h1>
+      <div>
+        <img onClick={() => history.push('/cart')} src={shoppingCart} />
+        <p onClick={() => history.push('/history')}>Histórico</p>
+      </div>
     </Container>
   );
 };
@@ -25,7 +28,13 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-around;
 
-  P{
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1{
     cursor: pointer;
     font-family: 'Merienda', cursive;
     font-weight: 700;
@@ -38,6 +47,13 @@ const Container = styled.header`
   img{
     cursor: pointer;
     height: 50px;
+  }
+
+  p{
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Merienda', cursive;
+    font-size: 20px;
   }
 `;
 
