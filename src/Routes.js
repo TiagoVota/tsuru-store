@@ -18,7 +18,8 @@ import Products from './pages/Products/index';
 import ProductsByCategories from './pages/ProductsByCategory/index';
 import Cart from './pages/Cart/index';
 import SingleProduct from './pages/SingleProduct/index';
-
+import History from './pages/History';
+import Sale from './pages/sale';
 
 function Routes() {
   const { userInfo: { token } } = useContext(UserContext);
@@ -43,6 +44,8 @@ function Routes() {
       <Route exact path='/categories/:id' component={ProductsByCategories} />
       <Route exact path='/product/:id' component={SingleProduct} />
       <Route exact path='/cart' component={Cart}/>
+      <Route exact path='/history' component={History}/>
+      <Route exact path='/history/:id' component={Sale} />
     </Switch>
   );
 }

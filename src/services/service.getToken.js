@@ -1,5 +1,5 @@
 const getToken = () => {
-  const token = localStorage.token;
+  const token = localStorage.getItem('token');
 
   return {
     headers: {
