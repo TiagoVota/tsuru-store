@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { postCheckout } from '../../services/service.closeCart';
 import Swal from 'sweetalert2';
 
+
 const Cart = () => {
   const history = useHistory;
 
@@ -42,15 +43,27 @@ const Cart = () => {
 
   return (
     <>
+      <Header />
+
+      <PageContainer>
+        <CartContainer>
+
+        </CartContainer>
+      </PageContainer>
     </>
   );
 };
 
 
-const CheckoutButton = styled.button`
-  margin: 250px;
-  width: 500px;
-  height: 500px;
+export default Cart;
+
+
+const PageContainer = styled.div`
+  display: flex;
+  margin-top: 70px;
+  height: calc(100vh - 70px);
 `;
 
-export default Cart;
+const CartContainer = styled.div`
+  margin-top: 5vh;
+`;
