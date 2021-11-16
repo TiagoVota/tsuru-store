@@ -58,6 +58,8 @@ const HistoryContainer = styled.div`
 
   @media (max-width: 600px){
     margin-top: 15vh;
+    width: 100%;
+    border-radius: 0;
   }
 `;
 
@@ -67,6 +69,7 @@ const SaleContainer = styled.div`
 
 const Empty = styled.p`
   font-size: 24px;
+  text-align: center;
 `;
 
 export default History;
