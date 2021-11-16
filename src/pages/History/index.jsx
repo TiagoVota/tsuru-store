@@ -30,7 +30,7 @@ const History = () => {
           {status === 200 ?
             <Content sales={sales}/>
             :
-            <Empty>Parece que você não tem nenhuma compra.</Empty>
+            <Empty>Parece que você não tem nenhuma compra</Empty>
           }
         </HistoryContainer>
       </PageContainer>
