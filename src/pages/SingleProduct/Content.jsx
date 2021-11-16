@@ -1,10 +1,12 @@
+import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 
 import treatError from '../../services/service.error';
 import { getToken } from '../../services/service.getToken';
 import { getProduct } from '../../services/service.products';
+import { postCartProduct } from '../../services/service.cart';
+import { errorModal, successModal } from '../../factories/modalsFactory';
 
 const Content = () => {
   const { id } = useParams();
@@ -26,6 +28,17 @@ const Content = () => {
       .catch(() => treatError(history));
   }, []);
 
+  const addProduct = () => {
+    postCartProduct(id, 1, config)
+      .then(() => {
+        successModal(`${product.name} adicionado com sucesso!`);
+        history.push('/products');
+      })
+      .catch((error) => {
+        errorModal(error.response.data);
+      });
+  };
+
   return (
     <Page>
       <ProductContainer>
@@ -35,7 +48,9 @@ const Content = () => {
             <p>{product.name}</p>
             <p>R$ {product.price.replace('.', ',')}</p>
           </TextContainer>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
+          <AddToCartButton onClick={addProduct}>
+            Adicionar ao carrinho
+          </AddToCartButton>
         </Sidebar>
       </ProductContainer>
     </Page>);

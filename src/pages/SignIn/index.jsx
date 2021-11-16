@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Swal from 'sweetalert2';
 
 import { postSignIn } from '../../services/service.auth';
+import { errorModal, successModal } from '../../factories/modalsFactory';
 
 
 const SignIn = () => {
@@ -28,23 +28,6 @@ const SignIn = () => {
         clearInputs();
       })
       .catch(({ request: { status }}) => handleFailRegister(status));
-  };
-
-  const errorModal = (errorText) => {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: errorText,
-    });
-  };
-
-  const successModal = (successText) => {
-    Swal.fire({
-      icon: 'success',
-      title: successText,
-      showConfirmButton: false,
-      timer: 1500
-    });
   };
 
   const clearInputs = () => {

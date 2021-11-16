@@ -11,8 +11,8 @@ const Content = (props) => {
   let totalItens = 0;
 
   useEffect(() => {
-    const promisse = getSale(props.id, config);
-    promisse.then(res => setListProducts(res.data));
+    const promise = getSale(props.id, config);
+    promise.then(res => setListProducts(res.data));
   }, []);
 
   return (
@@ -26,14 +26,14 @@ const Content = (props) => {
             <ContainerProduct key={key}>
               <p>{product.name}</p>
               <p>Quantidade: {product.quantity}</p>
-              <p>Preço: R${(product.price * product.quantity).toFixed(2)}</p>
+              <p>Preço: R$ {(product.price * product.quantity).toFixed(2)}</p>
             </ContainerProduct>
           );
         })}
       </ ContainerAllSales>
       <Total>
         <p>Total de itens: {totalItens}</p>
-        <p>Total: R${totalPrice.toFixed(2)}</p>
+        <p>Total: R$ {totalPrice.toFixed(2)}</p>
       </Total>
     </ContainerSale>
   );
