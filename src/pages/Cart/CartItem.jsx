@@ -26,7 +26,7 @@ const CartItem = ({ itemInfo }) => {
         <ProductInfo itemInfo={itemInfo}/>
       </ProductBox>
       <PriceBox>
-        R$ {(price * quantity).toFixed(2).replace('.', ',')}
+        R$ {(Number(price) * Number(quantity)).toFixed(2).replace('.', ',')}
       </PriceBox>
     </Container>
   );
