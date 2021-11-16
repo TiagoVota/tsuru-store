@@ -2,9 +2,15 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 import shoppingCart from '../../assets/shoppingCart.svg';
+import logoutIcon from '../../assets/Logout.svg';
 
 const Header = () => {
   const history = useHistory();
+
+  const logout = () => {
+    localStorage.clear();
+    history.push('/');
+  };
 
   return (
     <Container>
@@ -12,6 +18,7 @@ const Header = () => {
       <div>
         <img onClick={() => history.push('/cart')} src={shoppingCart} />
         <p onClick={() => history.push('/history')}>Histórico</p>
+        <img onClick={(logout)} src={logoutIcon}></img>
       </div>
     </Container>
   );
@@ -46,7 +53,7 @@ const Container = styled.header`
 
   img{
     cursor: pointer;
-    height: 50px;
+    height: 40px;
   }
 
   p{
