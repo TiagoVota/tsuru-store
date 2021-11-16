@@ -7,8 +7,8 @@ const postCartProduct = (productId, quantity, config) => {
   return axios.post(`${BASE_URL}/single-product/${productId}`, body, config);
 };
 
-const postCheckout = (config) => {
-  return axios.post(`${BASE_URL}/checkout`, config);
+const postCheckout = (config, body) => {
+  return axios.post(`${BASE_URL}/checkout`, body, config);
 };
 
 const getCartList = (config) => {

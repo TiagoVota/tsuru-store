@@ -8,9 +8,10 @@ import { errorModal, successModal } from '../../factories/modalsFactory';
 
 const FinalizeCartSession = () => {
   const config = getToken();
+  const token = config.headers.authorization.replace('Bearer ', '');
   const history = useHistory();
   const closeCart = () => {
-    postCheckout(config)
+    postCheckout(config, { token })
       .then(handleSuccess)
       .catch((error) => handleError(error));
   };
@@ -19,9 +20,9 @@ const FinalizeCartSession = () => {
     successModal('Compra realizada!');
     history.push('/products');
   };
-  
+
   const handleError = (error) => {
-    console.log({error});
+    console.log({ error });
     if (error.response.status === 404) {
       return errorModal('Parece que seu carrinho está vazio');
     }
@@ -29,7 +30,7 @@ const FinalizeCartSession = () => {
     errorModal('Algo deu errado');
     return history.push('/products');
   };
-  
+
   return (
     <Container>
       <FinalizeButton onClick={closeCart}>
