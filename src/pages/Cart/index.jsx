@@ -84,7 +84,7 @@ const CartContainer = styled.div`
 
   > div {
     width: 100%;
-    height: 150px;
+    height: 160px;
     padding: 15px 0 30px 0;
   }
 `;

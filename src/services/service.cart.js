@@ -15,8 +15,13 @@ const getCartList = (config) => {
   return axios.get(`${BASE_URL}/cart`, config);
 };
 
+const deleteCartProduct = (productId, config) => {
+  return axios.delete(`${BASE_URL}/single-product/${productId}`, config);
+};
+
 export {
   postCartProduct,
   postCheckout,
   getCartList,
+  deleteCartProduct,
 };

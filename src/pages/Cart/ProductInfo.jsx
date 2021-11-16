@@ -2,12 +2,16 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ProductInfo = ({ itemInfo, onClick: changeQuantity }) => {
+const ProductInfo = ({ itemInfo, onClick }) => {
   const {
     id,
     name,
     quantity
   } = itemInfo;
+  const {
+    changeQuantity,
+    handleDelete
+  } = onClick;
 
   const addProduct = () => changeQuantity(quantity+1);
   const subProduct = () => {
@@ -33,7 +37,7 @@ const ProductInfo = ({ itemInfo, onClick: changeQuantity }) => {
       </QuantityWarper>
       
       
-      <ExcludeButton>Excluir</ExcludeButton>
+      <ExcludeButton onClick={handleDelete}>Excluir</ExcludeButton>
     </Container>
   );
 };
@@ -76,8 +80,11 @@ const Input = styled.input`
   text-align: center;
 `;
 
-const ExcludeButton = styled.div`
-  cursor: pointer;
-  color: blue;
+const ExcludeButton = styled.button`
   padding: 5px 5px 5px 0;
+  cursor: pointer;
+  text-align: center;
+  color: red;
+  font-size: 15px;
+  background-color: #FFFFFF;
 `;
