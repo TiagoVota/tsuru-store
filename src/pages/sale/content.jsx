@@ -48,8 +48,14 @@ const ContainerSale = styled.div`
   width: 80%;
   height: 80%;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 50px 0 0 0;
   box-shadow: 10px 10px 15px 3px black;
+
+  @media (max-width: 600px){
+    width: 100%;
+    border-radius: 0;
+    margin-top: 15vh;
+  }
 `;
 
 const ContainerAllSales = styled.div`
@@ -66,13 +72,18 @@ const ContainerAllSales = styled.div`
 
 const ContainerProduct = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   border: solid 1px black;
   background-color: wheat;
+
+  p {
+    text-align: center;
+    padding: 5px;
+  }
 `;
 
 const Total = styled.div`
@@ -84,6 +95,10 @@ const Total = styled.div`
   margin: 10px;
   border: solid 1px black;
   background-color: wheat;
+
+  p{
+    text-align: center;
+  }
 `;
 
 export default Content;
