@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 
 
-const TotalSession = (params) => {
-  const { total } = params;
+const TotalSession = ({ total }) => {
   return (
     <Container>
       <Info>Total</Info>
