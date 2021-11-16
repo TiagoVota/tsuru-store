@@ -44,6 +44,9 @@ const Cart = () => {
               <CartItem
                 key={index}
                 itemInfo={item}
+                itemIndex={index}
+                cartList={cartList}
+                setCartList={setCartList}
               />);
           })}
 

@@ -2,12 +2,18 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ProductInfo = ({ itemInfo }) => {
+const ProductInfo = ({ itemInfo, onClick: changeQuantity }) => {
   const {
     id,
     name,
     quantity
   } = itemInfo;
+
+  const addProduct = () => changeQuantity(quantity+1);
+  const subProduct = () => {
+    if (quantity <= 1) return;
+    changeQuantity(quantity-1);
+  };
 
   return (
     <Container>
@@ -16,13 +22,14 @@ const ProductInfo = ({ itemInfo }) => {
       </Link>
 
       <QuantityWarper>
-        <Button onClick={() => quantity-1}>+</Button>
+        <Button onClick={subProduct}>-</Button>
 
         <Input
           value={quantity}
+          onChange={({ target: { value } }) => changeQuantity(value)}
         />
 
-        <Button>-</Button>
+        <Button onClick={addProduct}>+</Button>
       </QuantityWarper>
       
       

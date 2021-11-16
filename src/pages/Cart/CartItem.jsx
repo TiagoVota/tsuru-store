@@ -2,10 +2,15 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { errorModal } from '../../factories/modalsFactory';
+import { postCartProduct } from '../../services/service.cart';
+import { getToken } from '../../services/service.getToken';
+
 import ProductInfo from './ProductInfo';
 
 
-const CartItem = ({ itemInfo }) => {
+const CartItem = ({ itemInfo, itemIndex, cartList, setCartList }) => {
+  const config = getToken();
   const {
     id,
     image,
@@ -13,6 +18,24 @@ const CartItem = ({ itemInfo }) => {
     price,
     quantity
   } = itemInfo;
+
+  const changeQuantity = (newQuantity) => {
+    if (isNaN(Number(newQuantity))) return;
+
+    postCartProduct(id, newQuantity, config)
+      .then(() => {
+        const newItem = {
+          ...itemInfo,
+          quantity: newQuantity
+        };
+    
+        const newList = [...cartList];
+        newList[itemIndex] = newItem;
+        
+        setCartList(newList);
+      })
+      .catch((error) => errorModal(error.response.message));
+  };
 
   return (
     <Container>
@@ -23,7 +46,10 @@ const CartItem = ({ itemInfo }) => {
           </ImgBox>
         </Link>
 
-        <ProductInfo itemInfo={itemInfo}/>
+        <ProductInfo
+          itemInfo={itemInfo}
+          onClick={changeQuantity}
+        />
       </ProductBox>
       <PriceBox>
         R$ {(Number(price) * Number(quantity)).toFixed(2).replace('.', ',')}
