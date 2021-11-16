@@ -12,8 +12,8 @@ const History = () => {
   const config = getToken();
 
   useEffect(() => {
-    const promisse = getHistory(config);
-    promisse.then((res) => {
+    const promise = getHistory(config);
+    promise.then((res) => {
       setSales(res.data);
       setStatus(res.status);
     }).catch((res) =>

@@ -24,16 +24,23 @@ const Sidebar = () => {
     setListCategories(res.data);
   };
 
+  const handleCategoryClick = (event, category) => {
+    event.preventDefault();
+    history.push(`/categories/${category.id}`);
+  };
+
   return (
     <Container isFlipped={flipped}>
       <CategoriesList>
         {
           listCategories.map((category, key) => {
             return (
-              <p key={key} onClick={(e) => {
-                history.push(`/categories/${category.id}`);
-                e.preventDefault();
-              }}>{category.type}</p>
+              <div
+                key={key}
+                onClick = {(event) => handleCategoryClick(event, category)}
+              >
+                {category.type}
+              </div>
             );
           })
         }
@@ -68,10 +75,13 @@ const Container = styled.div`
     white-space: normal;
   }
 
-  p{
-    margin-bottom: 30px;
+  div {
+    width: 100%;
+    padding-bottom: 30px;
     cursor: pointer;
+    text-align: center;
   }
+
 
   @media (max-width: 600px) {
     height: ${(props) => props.isFlipped ? 'calc(100vh - 70px)' : '10vh'};

@@ -10,8 +10,6 @@ import {
   useHistory,
 } from 'react-router-dom';
 
-import UserContext from './contexts/UserContext';
-
 import SignIn from './pages/SignIn/index';
 import SignUp from './pages/SignUp/index';
 import Products from './pages/Products/index';
@@ -21,8 +19,9 @@ import SingleProduct from './pages/SingleProduct/index';
 import History from './pages/History';
 import Sale from './pages/sale';
 
+
 function Routes() {
-  const { userInfo: { token } } = useContext(UserContext);
+  const token = localStorage.getItem('token');
   const location = useLocation();
   const history = useHistory();
 
@@ -33,8 +32,7 @@ function Routes() {
     if (!havePermission) return history.push('/');
   };
 
-  // TODO: Ativar este useEffect e ver se não precisa melhorar nada dele
-  // useEffect(redirectUserPage, [location, token]);
+  useEffect(redirectUserPage, [location, token]);
 
   return (
     <Switch>

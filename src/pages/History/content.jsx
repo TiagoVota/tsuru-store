@@ -12,8 +12,8 @@ const Content = (props) => {
         props.sales.map((sale, key) => {
           return (
             <SaleContainer key={key} onClick={() => history.push(`/history/${sale.id}`)}>
-              <p>{`Código da compra: ${sale.id}`}</p>
-              <p>{`Feita no dia: ${dayjs(sale.time).format('DD/MM/YY')}`}</p>
+              <p>Código da compra: {sale.id}</p>
+              <p>Feita no dia: {dayjs(sale.time).format('DD/MM/YY')}</p>
             </SaleContainer>
           );
         })

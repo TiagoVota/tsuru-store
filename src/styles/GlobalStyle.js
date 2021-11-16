@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  *{
+  * {
     box-sizing: border-box;
   }
   button{
@@ -65,9 +65,10 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
-  html{
+  html {
     background-image: linear-gradient(315deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
     background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
   }
 `;
 
